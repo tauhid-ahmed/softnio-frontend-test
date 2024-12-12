@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body,
+html,
+#root {
+  height: 100%;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.container {
+  @apply max-w-screen-xl px-6 w-full mx-auto;
+}
