@@ -25,26 +25,41 @@ export default {
         15: "3.75rem",
       },
       width: {
+        15: "3.75rem",
         85: "21.25rem",
       },
+
+      maxWidth: {
+        162: "40.625rem",
+      },
+
       lineHeight: {
         7.5: "1.875rem",
       },
-    },
 
-    keyframes: {
-      "animate-fade-in": {
-        from: {
-          transform: "scale(0.95)",
-        },
-        to: {
-          transform: "scale(1)",
+      fontSize: {
+        xsm: "0.8125rem",
+        "5.5xl": "1.375rem",
+      },
+
+      borderRadius: {
+        DEFAULT: "3px",
+        "2.5xl": "1.25rem",
+      },
+      keyframes: {
+        "animate-fade-in": {
+          from: {
+            transform: "scale(0.98)",
+          },
+          to: {
+            transform: "scale(1)",
+          },
         },
       },
-    },
 
-    animation: {
-      "fade-in": "animate-fade-in linear 300ms 1 both",
+      animation: {
+        "fade-in": "animate-fade-in linear -300ms 300ms 1 both",
+      },
     },
   },
   plugins: [],
