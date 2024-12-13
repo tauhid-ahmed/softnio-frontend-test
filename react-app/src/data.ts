@@ -8,7 +8,8 @@ export type ProductColorVariant = {
 export type ProductSizeVariant = {
   id: string;
   variant: string;
-  price: number;
+  originalPrice: number;
+  salePrice: number;
   default: boolean;
 };
 
@@ -17,8 +18,6 @@ export type Product = {
   name: string;
   reviews: number;
   rating: number;
-  originalPrice: number;
-  salePrice: number;
   type: string;
   modelNumber: string;
   details: string;
@@ -32,8 +31,6 @@ export const products: Product[] = [
     name: "Classy Modern Smart Watch",
     reviews: 2,
     rating: 4.5,
-    originalPrice: 99,
-    salePrice: 79,
     type: "Watch",
     modelNumber: "Forerunner 290XT",
     details:
@@ -65,13 +62,32 @@ export const products: Product[] = [
       },
     ],
     sizes: [
-      { id: "HBaMPvBqLBsGZWQrSKI201", variant: "S", price: 69, default: false },
-      { id: "HBaMPvBqLBsGZWQrSKI202", variant: "M", price: 79, default: true },
-      { id: "HBaMPvBqLBsGZWQrSKI203", variant: "L", price: 89, default: false },
+      {
+        id: "HBaMPvBqLBsGZWQrSKI201",
+        variant: "S",
+        originalPrice: 89,
+        salePrice: 69,
+        default: false,
+      },
+      {
+        id: "HBaMPvBqLBsGZWQrSKI202",
+        variant: "M",
+        originalPrice: 99,
+        salePrice: 79,
+        default: true,
+      },
+      {
+        id: "HBaMPvBqLBsGZWQrSKI203",
+        variant: "L",
+        originalPrice: 109,
+        salePrice: 89,
+        default: false,
+      },
       {
         id: "HBaMPvBqLBsGZWQrSKI204",
         variant: "XL",
-        price: 99,
+        originalPrice: 119,
+        salePrice: 99,
         default: false,
       },
     ],
