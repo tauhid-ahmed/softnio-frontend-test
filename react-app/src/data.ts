@@ -1,13 +1,13 @@
-export type ProductColorVariant = {
+export type ProductColor = {
   id: string;
-  variant: string;
+  color: string;
   image: string;
   default: boolean;
 };
 
-export type ProductSizeVariant = {
+export type ProductSize = {
   id: string;
-  variant: string;
+  size: string;
   originalPrice: number;
   salePrice: number;
   default: boolean;
@@ -21,8 +21,8 @@ export type Product = {
   type: string;
   modelNumber: string;
   details: string;
-  variants: ProductColorVariant[];
-  sizes: ProductSizeVariant[];
+  colors: ProductColor[];
+  sizes: ProductSize[];
 };
 
 export const products: Product[] = [
@@ -35,28 +35,28 @@ export const products: Product[] = [
     modelNumber: "Forerunner 290XT",
     details:
       "I must explain to you how all this mistaken idea of denoun cing ple praising pain was born and I will give you a complete account of the system, and expound the actual teaching.",
-    variants: [
+    colors: [
       {
         id: "HBaMPvBqLBsGZWQrSKI101",
-        variant: "purple",
+        color: "purple",
         image: "/images/watch-purple.png",
         default: true,
       },
       {
         id: "HBaMPvBqLBsGZWQrSKI102",
-        variant: "cyan",
+        color: "cyan",
         image: "/images/watch-cyan.png",
         default: false,
       },
       {
         id: "HBaMPvBqLBsGZWQrSKI103",
-        variant: "blue",
+        color: "blue",
         image: "/images/watch-blue.png",
         default: false,
       },
       {
         id: "HBaMPvBqLBsGZWQrSKI104",
-        variant: "black", // Updated from blue for better clarity
+        color: "black", // Updated from blue for better clarity
         image: "/images/watch-black.png",
         default: false,
       },
@@ -64,28 +64,28 @@ export const products: Product[] = [
     sizes: [
       {
         id: "HBaMPvBqLBsGZWQrSKI201",
-        variant: "S",
+        size: "S",
         originalPrice: 89,
         salePrice: 69,
         default: false,
       },
       {
         id: "HBaMPvBqLBsGZWQrSKI202",
-        variant: "M",
+        size: "M",
         originalPrice: 99,
         salePrice: 79,
         default: true,
       },
       {
         id: "HBaMPvBqLBsGZWQrSKI203",
-        variant: "L",
+        size: "L",
         originalPrice: 109,
         salePrice: 89,
         default: false,
       },
       {
         id: "HBaMPvBqLBsGZWQrSKI204",
-        variant: "XL",
+        size: "XL",
         originalPrice: 119,
         salePrice: 99,
         default: false,
