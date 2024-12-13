@@ -71,10 +71,10 @@ export function ProductView({ product, addToCart }: ProductViewProps) {
             </div>
             <div className="flex gap-1 items-center">
               <span className="text-xl line-through text-gray-300">
-                ${product.originalPrice.toFixed(2)}
+                ${state.size.originalPrice.toFixed(2)}
               </span>
               <span className="font-bold text-2xl text-primary-500">
-                ${product.salePrice.toFixed(2)}
+                ${state.size.salePrice.toFixed(2)}
               </span>
             </div>
             <div className="space-y-4 md:space-y-5">
@@ -128,6 +128,7 @@ export function ProductView({ product, addToCart }: ProductViewProps) {
                 <Button
                   onClick={() => {
                     addToCart(nextProduct);
+                    dispatch({ type: RESET });
                   }}
                   disabled={state.count < 1}
                 >

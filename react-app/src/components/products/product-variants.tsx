@@ -43,7 +43,7 @@ export function SizeVariants({
             >
               {item.variant.toUpperCase()}
             </span>
-            <span className="text-xs">${item.price.toFixed(2)}</span>
+            <span className="text-xs">${item.salePrice.toFixed(2)}</span>
             <RadioGroup.Indicator />
           </RadioGroup.Item>
         ))}
