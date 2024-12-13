@@ -1,6 +1,7 @@
 import { Button } from "../button";
+import { CartProduct } from "../products/types";
 
-export function Cart({ cart }: any) {
+export function Cart({ cart }: { cart: CartProduct[] }) {
   if (cart.length < 1) return;
   const productsInCart = cart.map((product) => ({
     ...product,
@@ -15,7 +16,7 @@ export function Cart({ cart }: any) {
       <div className="max-w-162 w-full p-11 min-h-96 bg-white rounded-2.5xl space-y-4">
         <h2 className="text-5.5xl font-bold text-gray-500">Your Cart</h2>
         <table className="text-sm w-full text-center [&_td:nth-child(1)]:text-left [&_th:nth-child(1)]:text-left [&_td]:text-center [&_td:nth-child(5)]:text-right [&_th:nth-child(5)]:text-right">
-          <thead className="text-gray-300">
+          <thead className="text-gray-300 h-20 overflow-hidden">
             <tr className="border-b">
               <th className="font-normal py-2">Item</th>
               <th className="font-normal py-2">Color</th>
@@ -33,7 +34,7 @@ export function Cart({ cart }: any) {
                     Classy Modern Smart watch
                   </div>
                 </td>
-                <td className="p-4">{product.color}</td>
+                <td className="p-4 capitalize">{product.color}</td>
                 <td className="p-4 font-bold">{product.size}</td>
                 <td className="p-4">{product.count}</td>
                 <td className="py-4 font-bold">${product.price.toFixed(2)}</td>

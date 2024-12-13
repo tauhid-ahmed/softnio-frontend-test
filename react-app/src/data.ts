@@ -1,4 +1,32 @@
-export const products = [
+export type ProductColorVariant = {
+  id: string;
+  variant: string;
+  image: string;
+  default: boolean;
+};
+
+export type ProductSizeVariant = {
+  id: string;
+  variant: string;
+  price: number;
+  default: boolean;
+};
+
+export type Product = {
+  id: string;
+  name: string;
+  reviews: number;
+  rating: number;
+  originalPrice: number;
+  salePrice: number;
+  type: string;
+  modelNumber: string;
+  details: string;
+  variants: ProductColorVariant[];
+  sizes: ProductSizeVariant[];
+};
+
+export const products: Product[] = [
   {
     id: "HBaMPvBqLBsGZWQrSKI",
     name: "Classy Modern Smart Watch",

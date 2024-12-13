@@ -1,8 +1,19 @@
 import * as RadioGroup from "@radix-ui/react-radio-group";
 import classNames from "classnames";
 import { SET_COLOR, SET_SIZE } from "./constant";
+import { type ProductSizeVariant } from "../../data";
 
-export function SizeVariants({ variants, changeVariant, currentVariant }: any) {
+type SizeVariantsProps = {
+  variants: ProductSizeVariant[];
+  changeVariant: ({ type, payload }: { type: string; payload: {} }) => void;
+  currentVariant: string;
+};
+
+export function SizeVariants({
+  variants,
+  changeVariant,
+  currentVariant,
+}: SizeVariantsProps) {
   const handleVariantChange = (variant: string) => {
     const [nextVariant] = variants.filter((item) => item.variant === variant);
     changeVariant({ type: SET_SIZE, payload: nextVariant });
@@ -16,7 +27,7 @@ export function SizeVariants({ variants, changeVariant, currentVariant }: any) {
         onValueChange={handleVariantChange}
         className="flex gap-3 w-80 md:w-85"
       >
-        {variants.map((item: any) => (
+        {variants.map((item: ProductSizeVariant) => (
           <RadioGroup.Item
             key={item.variant}
             value={item.variant}
@@ -47,7 +58,9 @@ export function ColorVariants({
   currentVariant,
 }: any) {
   const handleVariantChange = (variant: string) => {
-    const [nextVariant] = variants.filter((item) => item.variant === variant);
+    const [nextVariant] = variants.filter(
+      (item: ProductSizeVariant) => item.variant === variant
+    );
     changeVariant({ type: SET_COLOR, payload: nextVariant });
   };
 
@@ -65,14 +78,14 @@ export function ColorVariants({
             key={item.id}
             value={item.variant}
             className={classNames(
-              "size-4 inline-block rounded-full relative after:absolute after:inset-0.5 after:rounded-full after:border-white transition-transform duration-500",
+              "size-4 inline-block rounded-full relative after:absolute after:inset-[2px] after:rounded-full after:border-white",
               {
                 "bg-primary-500 after:bg-primary-500":
                   item.variant === "purple",
                 "bg-cyan-500 after:bg-cyan-500": item.variant === "cyan",
                 "bg-blue-500 after:bg-blue-500": item.variant === "blue",
                 "bg-gray-500 after:bg-gray-500": item.variant === "black",
-                "size-5 md:size-6 after:border":
+                "size-5 md:size-6 after:border-[1.5px]":
                   item.variant === currentVariant,
                 "hover:scale-125": item.variant !== currentVariant,
               }

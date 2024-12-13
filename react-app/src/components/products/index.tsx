@@ -4,6 +4,14 @@ import * as Icons from "../icons";
 import { ColorVariants, SizeVariants } from "./product-variants";
 import { DECREMENT, INCREMENT, RESET, SET_COLOR, SET_SIZE } from "./constant";
 import { Button } from "../button";
+import { type Product } from "../../data";
+import { CartProduct } from "./types";
+
+type ProductViewProps = {
+  product: Product;
+  addToCart: (product: CartProduct) => void;
+};
+
 const reducer = (state: any, action: any) => {
   switch (action.type) {
     case SET_COLOR:
@@ -21,7 +29,7 @@ const reducer = (state: any, action: any) => {
   }
 };
 
-export function ProductView({ product, addToCart }: any) {
+export function ProductView({ product, addToCart }: ProductViewProps) {
   const [initialColorVariant] = product.variants.filter(
     (prod: any) => prod.default
   );
@@ -75,7 +83,7 @@ export function ProductView({ product, addToCart }: any) {
               </span>
             </div>
             <div className="space-y-4 md:space-y-5">
-              <p className="md:text-lg text-gray-300 leading-7 line-clamp-2 md:line-clamp-none">
+              <p className="md:text-lg text-gray-300 leading-7 md:leading-7.5 line-clamp-2 md:line-clamp-none">
                 {product.details}
               </p>
               <ul className="flex gap-6">
