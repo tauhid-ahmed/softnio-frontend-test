@@ -55,16 +55,16 @@ export default {
       keyframes: {
         "animate-fade-in": {
           from: {
-            transform: "scale(0.98)",
+            opacity: "0",
           },
           to: {
-            transform: "scale(1)",
+            opacity: "1",
           },
         },
       },
 
       animation: {
-        "fade-in": "animate-fade-in linear -300ms 300ms 1 both",
+        "fade-in": "animate-fade-in ease-in 300ms 1 both",
       },
     },
   },
