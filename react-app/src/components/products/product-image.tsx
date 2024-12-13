@@ -2,13 +2,13 @@ import { motion, AnimatePresence } from "motion/react";
 
 const variants = {
   initial: {
-    opacity: 0.7,
+    opacity: 0.3,
   },
   animate: {
     opacity: 1,
   },
   exit: {
-    opacity: 0.5,
+    opacity: 0.7,
   },
 };
 
