@@ -6,6 +6,7 @@ import { DECREMENT, INCREMENT, RESET, SET_COLOR, SET_SIZE } from "./constant";
 import { Button } from "../button";
 import { type Product } from "../../data";
 import { CartProduct } from "./types";
+import { ProductImage } from "./product-image";
 
 type ProductViewProps = {
   product: Product;
@@ -59,13 +60,7 @@ export function ProductView({ product, addToCart }: ProductViewProps) {
   return (
     <>
       <div className="container md:grid gap-6 lg:gap-15 grid-cols-2">
-        <div className="rounded overflow-hidden py-6 md:py-0">
-          <img
-            key={state.color.id}
-            className="animate-fade-in block h-60 md:h-full w-full object-cover mx-auto xw-full"
-            src={state.color?.image}
-          />
-        </div>
+        <ProductImage image={state.color.image} />
         <div className="flex items-center">
           <div className="space-y-4 md:space-y-5">
             <div className="space-y-3">
