@@ -83,7 +83,7 @@ export function ColorVariants({
                 "bg-primary-500 after:bg-primary-500":
                   item.variant === "purple",
                 "bg-cyan-500 after:bg-cyan-500": item.variant === "cyan",
-                "bg-blue-500 after:bg-blue-500": item.variant === "blue",
+                "bg-blue-450 after:bg-blue-450": item.variant === "blue",
                 "bg-gray-500 after:bg-gray-500": item.variant === "black",
                 "size-5 md:size-6 after:border-[1.5px]":
                   item.variant === currentVariant,

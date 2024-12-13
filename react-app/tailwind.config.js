@@ -17,6 +17,12 @@ export default {
           400: "#3B4747",
           500: "#364A63",
         },
+        cyan: {
+          550: "#1FCEC9",
+        },
+        blue: {
+          450: "#4B97D3",
+        },
       },
       screens: {
         xl: "85.5rem",
