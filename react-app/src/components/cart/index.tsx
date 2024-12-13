@@ -1,11 +1,11 @@
 import { Button } from "../button";
-import { CartProduct } from "../products/types";
+import { type CartItem } from "../products/types";
 
-export function Cart({ cart }: { cart: CartProduct[] }) {
+export function Cart({ cart }: { cart: CartItem[] }) {
   if (cart.length < 1) return;
   const productsInCart = cart.map((product) => ({
     ...product,
-    price: product.price * product.count,
+    price: product.salePrice * product.count,
   }));
 
   const totalPrice = productsInCart.reduce((acc, cur) => acc + cur.price, 0);
@@ -13,10 +13,10 @@ export function Cart({ cart }: { cart: CartProduct[] }) {
 
   return (
     <div className="flex h-full w-full items-center justify-center px-6 bg-[#11121B]/55 fixed inset-0">
-      <div className="max-w-162 w-full p-11 min-h-96 bg-white rounded-2.5xl space-y-4">
+      <div className="max-w-162 w-full p-6 md:p-11 min-h-96 bg-white rounded-2.5xl space-y-4">
         <h2 className="text-5.5xl font-bold text-gray-500">Your Cart</h2>
         <table className="text-sm w-full text-center [&_td:nth-child(1)]:text-left [&_th:nth-child(1)]:text-left [&_td]:text-center [&_td:nth-child(5)]:text-right [&_th:nth-child(5)]:text-right">
-          <thead className="text-gray-300 h-20 overflow-hidden">
+          <thead className="text-gray-300 overflow-hidden">
             <tr className="border-b">
               <th className="font-normal py-2">Item</th>
               <th className="font-normal py-2">Color</th>
