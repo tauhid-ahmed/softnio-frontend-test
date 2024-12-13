@@ -1,6 +1,6 @@
 import React from "react";
 import { ADD_TO_CART, OPEN_CART } from "./constant";
-import { type Store, type CartProduct, type StoreAction } from "./types";
+import { type Store, type CartItem, type StoreAction } from "./types";
 
 const initialState: Store = {
   isCartOpen: false,
@@ -13,10 +13,10 @@ export const reducer = (store: Store, action: StoreAction) => {
       return { ...store, isCartOpen: !store.isCartOpen };
     case ADD_TO_CART: {
       const existingProductIndex = store.cart.findIndex(
-        (product: CartProduct) =>
+        (product: CartItem) =>
           product.id === action.payload.id &&
-          product.colorId === action.payload.colorId &&
-          product.sizeId === action.payload.sizeId
+          product.cid === action.payload.colorId &&
+          product.sid === action.payload.sizeId
       );
 
       if (existingProductIndex !== -1) {
@@ -44,22 +44,22 @@ export const reducer = (store: Store, action: StoreAction) => {
   }
 };
 
-const isProductExist = (cart: Store["cart"], newProduct: CartProduct) => {
-  const { id, colorId, sizeId } = newProduct;
-  const existingProduct = cart.find((product: CartProduct) => {
-    return (
-      id === product.id &&
-      colorId === product.colorId &&
-      sizeId === product.sizeId
-    );
-  });
-  return existingProduct;
-};
+// const isProductExist = (cart: Store["cart"], newProduct: CartProduct) => {
+//   const { id, colorId, sizeId } = newProduct;
+//   const existingProduct = cart.find((product: CartProduct) => {
+//     return (
+//       id === product.id &&
+//       colorId === product.colorId &&
+//       sizeId === product.sizeId
+//     );
+//   });
+//   return existingProduct;
+// };
 
 export function useStore() {
   const [store, dispatch] = React.useReducer(reducer, initialState);
   const openCart = dispatch.bind(null, { type: OPEN_CART });
-  const addToCart = (payload: CartProduct) =>
+  const addToCart = (payload: CartItem) =>
     dispatch({ type: ADD_TO_CART, payload });
   return { store, openCart, addToCart };
 }
