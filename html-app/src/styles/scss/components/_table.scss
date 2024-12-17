@@ -1,0 +1,144 @@
+@use "../mixins" as *;
+
+.cart {
+  max-width: var(--size-162);
+  width: 100%;
+  margin: 0 auto;
+  padding: 1rem;
+  border-radius: var(--size-5);
+  background: white;
+  padding: var(--size-8);
+
+  @include screen-md {
+    padding: var(--size-11);
+  }
+
+  & table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: var(--size-2);
+  }
+
+  & thead {
+    color: var(--color-gray-300);
+    font-weight: var(--font-400);
+    font-size: var(--text-sm);
+  }
+
+  & tbody {
+    color: var(--color-gray-500);
+  }
+
+  & tr {
+    border-bottom: 1px solid var(--color-gray-200);
+  }
+
+  & th,
+  & td {
+    text-align: center;
+  }
+
+  & th {
+    font-weight: var(--font-400);
+    padding-top: var(--size-3);
+    padding-bottom: var(--size-3);
+  }
+
+  & td {
+    padding-top: var(--size-4);
+    padding-bottom: var(--size-4);
+  }
+
+  &__title {
+    font-size: var(--size-5\.5);
+    font-weight: var(--font-700);
+    color: var(--color-gray-500);
+  }
+
+  &__image {
+    display: inline-block;
+    width: var(--size-9);
+    height: var(--size-9);
+    background-color: #ddd;
+    border-radius: var(--rounded);
+    margin-right: 0.5rem;
+    overflow: hidden;
+
+    & img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  & th:not(:last-child),
+  & td:not(:last-child) {
+    padding-right: var(--size-4);
+  }
+
+  & th:not(:first-child),
+  & td:not(:first-child) {
+    @include screen-md {
+      padding-left: var(--size-4);
+    }
+  }
+
+  & th:first-child,
+  & td:first-child {
+    text-align: left;
+  }
+
+  & th:last-child,
+  & td:last-child {
+    text-align: right;
+  }
+
+  & td:nth-child(1),
+  & td:nth-child(2),
+  & td:nth-child(3),
+  & td:nth-child(4),
+  & td:nth-child(5) {
+    font-size: var(--text-sm);
+    color: var(--color-gray-500);
+  }
+
+  & td:nth-child(2) {
+    text-transform: capitalize;
+  }
+
+  & td:nth-child(3),
+  & td:nth-child(4),
+  & td:nth-child(5) {
+    font-weight: bold;
+  }
+
+  & tfoot tr {
+    border: none;
+  }
+
+  & tfoot td:nth-child(5) {
+    font-size: var(--text-lg);
+  }
+
+  & tfoot {
+    font-weight: var(--font-700);
+    color: var(--color-gray-500);
+  }
+
+  &__footer {
+    gap: var(--size-6);
+    justify-content: flex-end;
+    margin-top: var(--size-2\.5);
+  }
+}
+
+.cart-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(#11121b, 0.55);
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding-left: var(--size-6);
+  padding-right: var(--size-6);
+}

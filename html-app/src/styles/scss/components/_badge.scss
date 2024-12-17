@@ -1,0 +1,12 @@
+.badge {
+  background: #fff;
+  font-size: var(--text-xs);
+  border-radius: 5px;
+  font-weight: var(--font-bold);
+  height: var(--size-5);
+  width: var(--size-5);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
