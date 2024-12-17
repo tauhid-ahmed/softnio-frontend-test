@@ -1,0 +1,27 @@
+@use "scss/mixins" as *;
+@use "scss/font";
+@use "scss/reset";
+@use "scss/base";
+@use "scss/components";
+@use "scss/utils";
+
+#checkout-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding-bottom: var(--size-5);
+
+  & > * {
+    box-shadow: 0 0 15px 5px rgba(#000, 0.1);
+  }
+}
+
+.fav-button {
+  & svg {
+    height: var(--size-5);
+    margin-top: var(--size-1);
+  }
+  &:hover svg {
+    fill: var(--color-primary-500);
+  }
+}
