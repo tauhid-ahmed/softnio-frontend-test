@@ -91,7 +91,7 @@ export default class ProductDetailsView {
   productColors(product) {
     return `
       <div class="product__colors">
-        <h3>Brand Color</h3>
+        <h3>Band Color</h3>
         <ul id="product-color">
           ${this.updateProductColors(product)}
         </ul>

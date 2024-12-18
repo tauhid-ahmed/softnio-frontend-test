@@ -116,10 +116,13 @@
     border: none;
   }
 
+  & tfoot td:nth-child(1) {
+    font-size: var(--text-base);
+  }
+
   & tfoot td:nth-child(5) {
     font-size: var(--text-lg);
   }
-
   & tfoot {
     font-weight: var(--font-700);
     color: var(--color-gray-500);
