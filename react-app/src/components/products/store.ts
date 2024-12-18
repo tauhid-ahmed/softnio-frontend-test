@@ -1,5 +1,5 @@
 import React from "react";
-import { ADD_TO_CART, OPEN_CART } from "./constant";
+import { ADD_TO_CART, OPEN_CART, CLOSE_CART } from "./constant";
 import { type Store, type CartItem, type StoreAction } from "./types";
 
 const initialState: Store = {
@@ -11,6 +11,8 @@ export const reducer = (store: Store, action: StoreAction) => {
   switch (action.type) {
     case OPEN_CART:
       return { ...store, isCartOpen: !store.isCartOpen };
+    case CLOSE_CART:
+      return { ...store, isCartOpen: false };
     case ADD_TO_CART: {
       const existingProductIndex = store.cart.findIndex(
         (product: CartItem) =>
@@ -44,22 +46,11 @@ export const reducer = (store: Store, action: StoreAction) => {
   }
 };
 
-// const isProductExist = (cart: Store["cart"], newProduct: CartProduct) => {
-//   const { id, colorId, sizeId } = newProduct;
-//   const existingProduct = cart.find((product: CartProduct) => {
-//     return (
-//       id === product.id &&
-//       colorId === product.colorId &&
-//       sizeId === product.sizeId
-//     );
-//   });
-//   return existingProduct;
-// };
-
 export function useStore() {
   const [store, dispatch] = React.useReducer(reducer, initialState);
   const openCart = dispatch.bind(null, { type: OPEN_CART });
+  const closeCart = dispatch.bind(null, { type: CLOSE_CART });
   const addToCart = (payload: CartItem) =>
     dispatch({ type: ADD_TO_CART, payload });
-  return { store, openCart, addToCart };
+  return { store, closeCart, openCart, addToCart };
 }
