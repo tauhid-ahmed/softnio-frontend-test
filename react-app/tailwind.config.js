@@ -23,6 +23,9 @@ export default {
         blue: {
           450: "#4B97D3",
         },
+        purple: {
+          500: "#816BFF",
+        },
       },
       screens: {
         xl: "85.5rem",
@@ -45,6 +48,7 @@ export default {
 
       fontSize: {
         xsm: "0.8125rem",
+        10: "2.5rem",
         "5.5xl": "1.375rem",
       },
 
