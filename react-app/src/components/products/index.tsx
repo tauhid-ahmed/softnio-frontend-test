@@ -69,7 +69,7 @@ export function ProductView({ product, addToCart }: ProductViewProps) {
   };
 
   return (
-    <div className="container md:grid gap-6 lg:gap-15 grid-cols-2">
+    <div className="container md:grid gap-8 lg:gap-15 grid-cols-2">
       <ProductImage image={currentProduct.image} />
       <div className="flex items-center">
         <div className="space-y-4 md:space-y-5">
@@ -101,7 +101,7 @@ function CartHeader({ product }: { product: CartItem }) {
   return (
     <>
       <div className="space-y-3">
-        <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-500">
+        <h2 className="text-2xl lg:text-3xl xl:text-10 font-semibold text-gray-500">
           {product.name}
         </h2>
         <Ratings ratings={3.5} />
@@ -121,16 +121,16 @@ function CartHeader({ product }: { product: CartItem }) {
 function CartDetails({ product }: { product: CartItem }) {
   return (
     <>
-      <p className="md:text-lg text-gray-300 leading-7 md:leading-7.5 line-clamp-2 md:line-clamp-none">
+      <p className="md:text-lg text-gray-300 leading-7 md:leading-7.5">
         {product.details}
       </p>
-      <ul className="flex gap-6">
+      <ul className="flex gap-11">
         <li className="space-y-1">
-          <h3 className="text-sm">Type</h3>
+          <h3 className="text-sm text-gray-300">Type</h3>
           <div className="font-bold text-gray-500">{product.type}</div>
         </li>
         <li className="space-y-1">
-          <h3 className="text-sm">Model Number</h3>
+          <h3 className="text-sm text-gray-300">Model Number</h3>
           <div className="font-bold text-gray-500">{product.model}</div>
         </li>
       </ul>
@@ -157,7 +157,22 @@ function CartActions({ increment, decrement, updateCart, value }: CartActions) {
       <Button onClick={updateCart} disabled={value < 1}>
         Add to cart
       </Button>
-      <Icons.Love className="size-6" />
+      <button>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#6576ff"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="hover:fill-primary-500 h-5"
+        >
+          <path d="M20.8 4.6c-1.8-1.8-4.7-1.8-6.5 0l-1.3 1.3-1.3-1.3c-1.8-1.8-4.7-1.8-6.5 0s-1.8 4.7 0 6.5l7.8 7.8 7.8-7.8c1.8-1.8 1.8-4.7 0-6.5z"></path>
+        </svg>
+      </button>
     </div>
   );
 }
