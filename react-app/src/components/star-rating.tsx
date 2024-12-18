@@ -25,7 +25,7 @@ export function Ratings({ ratings = 3.5 }: RatingProps) {
   });
 
   return (
-    <div className="flex gap-1 items-center">
+    <div className="flex gap-1 items-center pt-0.5">
       {stars.map((star, index) => (
         <span key={index}>{starsIcon[star]}</span>
       ))}
