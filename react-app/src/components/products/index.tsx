@@ -101,7 +101,7 @@ function CartHeader({ product }: { product: CartItem }) {
   return (
     <>
       <div className="space-y-3">
-        <h2 className="text-2xl lg:text-3xl xl:text-10 font-semibold text-gray-500">
+        <h2 className="text-2xl lg:text-3xl xl:text-10 font-semibold text-gray-500 lg:tracking-tightest">
           {product.name}
         </h2>
         <Ratings ratings={3.5} />

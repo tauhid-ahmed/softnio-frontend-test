@@ -29,7 +29,9 @@ export function Ratings({ ratings = 3.5 }: RatingProps) {
       {stars.map((star, index) => (
         <span key={index}>{starsIcon[star]}</span>
       ))}
-      <span className="text-sm text-gray-300">(2 Reviews)</span>
+      <div className="pl-1">
+        <span className="text-sm text-gray-300">(2 Reviews)</span>
+      </div>
     </div>
   );
 }

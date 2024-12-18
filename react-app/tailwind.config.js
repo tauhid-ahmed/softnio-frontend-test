@@ -46,6 +46,10 @@ export default {
         7.5: "1.875rem",
       },
 
+      letterSpacing: {
+        tightest: "-0.075rem",
+      },
+
       fontSize: {
         xsm: "0.8125rem",
         10: "2.5rem",

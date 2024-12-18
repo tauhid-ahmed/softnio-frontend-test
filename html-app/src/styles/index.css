@@ -452,6 +452,7 @@ body {
 }
 @media (min-width: 1024px) {
   .product__title {
+    letter-spacing: -0.075rem;
     font-size: var(--text-4xl);
   }
 }
@@ -464,8 +465,11 @@ body {
   margin-top: var(--size-3);
 }
 .product__meta > .flex {
-  gap: var(--size-1);
+  gap: var(--size-1\.5);
   align-items: center;
+}
+.product__meta > .flex img {
+  height: 15px;
 }
 .product__meta > .flex span {
   font-size: var(--text-sm);
