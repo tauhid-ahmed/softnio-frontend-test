@@ -100,30 +100,27 @@ export function ColorVariants({
   };
 
   return (
-    <div className="space-y-2.5">
+    <div className="space-y-1.5">
       <h3 className="font-bold md:text-lg text-gray-500">Band Color</h3>
       <RadioGroup.Root
         name="color"
         value={currentColor}
         onValueChange={handleVariantChange}
-        className="flex gap-3 md:gap-5 items-center transition-all"
+        className="flex gap-3 md:gap-5 items-center h-6"
       >
         {colors.map((item: any) => (
           <RadioGroup.Item
             key={item.id}
             value={item.color}
-            className={classNames(
-              "size-4 inline-block rounded-full relative after:absolute after:inset-[2px] after:rounded-full after:border-white",
-              {
-                "bg-primary-500 after:bg-primary-500": item.color === "purple",
-                "bg-cyan-500 after:bg-cyan-500": item.color === "cyan",
-                "bg-blue-450 after:bg-blue-450": item.color === "blue",
-                "bg-gray-500 after:bg-gray-500": item.color === "black",
-                "size-5 md:size-6 after:border-[1.5px] animate-fade-in":
-                  item.color === currentColor,
-                "": item.color !== currentColor,
-              }
-            )}
+            className={classNames("size-4 inline-block rounded-full", {
+              "bg-purple-500 after:bg-purple-500": item.color === "purple",
+              "bg-cyan-500 after:bg-cyan-500": item.color === "cyan",
+              "bg-blue-450 after:bg-blue-450": item.color === "blue",
+              "bg-gray-500 after:bg-gray-500": item.color === "black",
+              "size-6 border-[5px] border-double border-white":
+                item.color === currentColor,
+              "": item.color !== currentColor,
+            })}
           >
             <RadioGroup.Indicator />
           </RadioGroup.Item>
