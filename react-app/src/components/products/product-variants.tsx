@@ -48,7 +48,7 @@ export function SizeVariants({
     });
   };
   return (
-    <div className="space-y-2.5">
+    <div className="space-y-2.5 mt-4">
       <h3 className="font-bold md:text-lg text-gray-500">Wrist Size</h3>
       <RadioGroup.Root
         name="size"
@@ -100,7 +100,7 @@ export function ColorVariants({
   };
 
   return (
-    <div className="space-y-1.5">
+    <div className="space-y-1.5 mt-4">
       <h3 className="font-bold md:text-lg text-gray-500">Band Color</h3>
       <RadioGroup.Root
         name="color"

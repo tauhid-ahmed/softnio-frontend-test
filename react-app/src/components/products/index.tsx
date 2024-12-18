@@ -71,27 +71,27 @@ export function ProductView({ product, addToCart }: ProductViewProps) {
   return (
     <div className="container md:grid gap-8 lg:gap-15 grid-cols-2">
       <ProductImage image={currentProduct.image} />
-      <div className="flex items-center">
-        <div className="space-y-4 md:space-y-5">
-          <CartHeader product={currentProduct} />
-          <CartDetails product={currentProduct} />
-          <ColorVariants
-            changeColor={dispatch}
-            currentColor={currentProduct.color}
-            colors={currentProduct.colors}
-          />
-          <SizeVariants
-            changeSize={dispatch}
-            currentSize={currentProduct.size}
-            sizes={currentProduct.sizes}
-          />
-          <CartActions
-            increment={increment}
-            decrement={decrement}
-            updateCart={updateCart}
-            value={currentProduct.count}
-          />
-        </div>
+      <div className="flex flex-col justify-center">
+        {/* <div className="space-y-4 md:space-y-5"> */}
+        <CartHeader product={currentProduct} />
+        <CartDetails product={currentProduct} />
+        <ColorVariants
+          changeColor={dispatch}
+          currentColor={currentProduct.color}
+          colors={currentProduct.colors}
+        />
+        <SizeVariants
+          changeSize={dispatch}
+          currentSize={currentProduct.size}
+          sizes={currentProduct.sizes}
+        />
+        <CartActions
+          increment={increment}
+          decrement={decrement}
+          updateCart={updateCart}
+          value={currentProduct.count}
+        />
+        {/* </div> */}
       </div>
     </div>
   );
@@ -106,7 +106,7 @@ function CartHeader({ product }: { product: CartItem }) {
         </h2>
         <Ratings ratings={3.5} />
       </div>
-      <div className="flex gap-1 items-center">
+      <div className="flex gap-1 items-center mt-5">
         <span className="text-xl line-through text-gray-300">
           ${product.originalPrice?.toFixed(2)}
         </span>
@@ -121,10 +121,10 @@ function CartHeader({ product }: { product: CartItem }) {
 function CartDetails({ product }: { product: CartItem }) {
   return (
     <>
-      <p className="md:text-lg text-gray-300 leading-7 md:leading-7.5">
+      <p className="md:text-lg text-gray-300 leading-7 md:leading-7.5 mt-5">
         {product.details}
       </p>
-      <ul className="flex gap-11">
+      <ul className="flex gap-11 mt-5">
         <li className="space-y-1">
           <h3 className="text-sm text-gray-300">Type</h3>
           <div className="font-bold text-gray-500">{product.type}</div>
@@ -140,7 +140,7 @@ function CartDetails({ product }: { product: CartItem }) {
 
 function CartActions({ increment, decrement, updateCart, value }: CartActions) {
   return (
-    <div className="flex gap-3 items-center">
+    <div className="flex gap-3 items-center mt-5">
       <div className="border border-gray-200 rounded overflow-hidden">
         <div className="flex -my-px">
           <Button variant="ghost" size="icon" onClick={decrement}>
